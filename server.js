@@ -7,9 +7,10 @@ function sendLog(message) {
 
     const client = new net.Socket();
 
-    client.connect(5000, "localhost", () => {
-        client.write(message);
-        client.end();
+    cli
+    // ent.connect(5000, "localhost", () => {
+     //   client.write(message);
+      //  client.end();
     });
 }
 
