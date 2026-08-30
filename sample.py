@@ -1,55 +1,114 @@
 """
-Sample Python code with intentional bugs.
+Sample Python code with intentional bugs for AutoFixAI testing.
 """
 
-def divide_numbers(a, b):
+
+def calculate_discount(price, discount_percent):
     """
-    Divide two numbers.
+    Calculate the final price after applying a discount.
 
-    Bug: Division by zero not handled
-    Bug: No type validation
+    Bugs:
+    - Allows negative prices
+    - Allows discount greater than 100%
+    - Does not validate input types
     """
-    result = a / b
-    return result
+    discount = price * discount_percent / 100
+    return price - discount
 
 
-def get_element(items, index):
+def find_maximum(numbers):
     """
-    Get element from a list using index.
+    Find the maximum number in a list.
 
-    Bug: Index out of range not handled
-    Bug: Doesn't handle negative index properly
+    Bugs:
+    - Crashes when the list is empty
+    - Does not validate input type
     """
-    return items[index]
+    maximum = numbers[0]
+
+    for number in numbers:
+        if number > maximum:
+            maximum = number
+
+    return maximum
 
 
-def reverse_text(text):
+def is_valid_email(email):
     """
-    Reverse a string.
+    Check whether an email address is valid.
 
-    Bug: Doesn't handle None input
-    Bug: No type validation
+    Bugs:
+    - Does not handle None
+    - Incorrectly accepts strings without a domain
+    - Does not validate input type
     """
-    reversed_text = text[::-1]
-    return reversed_text
+    return "@" in email
 
 
-def calculate_square_root(number):
+def calculate_average(numbers):
     """
-    Calculate square root of a number.
+    Calculate the average of numbers.
 
-    Bug: Negative numbers not handled
-    Bug: No type validation
+    Bugs:
+    - Division by zero for an empty list
+    - Does not validate input type
     """
-    return number ** 0.5
+    return sum(numbers) / len(numbers)
 
 
-def count_words(sentence):
+def remove_duplicates(items):
     """
-    Count number of words in a sentence.
+    Remove duplicate elements from a list.
 
-    Bug: Doesn't handle empty string properly
-    Bug: Doesn't handle None input
+    Bugs:
+    - Does not preserve the original order
+    - Fails with certain unhashable elements
     """
-    words = sentence.split(" ")
-    return len(words)
+    return list(set(items))
+
+
+def get_user_name(users, user_id):
+    """
+    Find a user's name by ID.
+
+    Bugs:
+    - Crashes if the user does not exist
+    - Assumes every user has an 'id' and 'name'
+    """
+    for user in users:
+        if user["id"] == user_id:
+            return user["name"]
+
+    raise Exception("User not found")
+
+
+def fibonacci(n):
+    """
+    Generate the nth Fibonacci number.
+
+    Bugs:
+    - Incorrect handling of n = 0
+    - Negative values are not handled
+    - Recursive implementation becomes inefficient for large n
+    """
+    if n == 1:
+        return 1
+
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+def calculate_total(items):
+    """
+    Calculate the total price of items.
+
+    Bugs:
+    - Assumes every item contains 'price'
+    - Does not validate price values
+    - Does not handle None
+    """
+    total = 0
+
+    for item in items:
+        total += item["price"]
+
+    return total
