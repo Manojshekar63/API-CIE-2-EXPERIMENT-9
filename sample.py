@@ -1,4 +1,3 @@
-
 """
 Sample Python code with one intentional bug for AutoFixAI testing.
 """
@@ -10,4 +9,4 @@ def calculate_average(numbers):
     """
     if not numbers:
         return None
-    return sum(numbers) / (len(numbers) - 1)
+    return sum(numbers) / len(numbers)
