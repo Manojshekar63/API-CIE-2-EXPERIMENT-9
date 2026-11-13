@@ -1,13 +1,6 @@
 
-"""
-Sample Python code with one intentional bug for AutoFixAI testing.
-"""
+def add_numbers(a, b):
+    result = a - b
+    return result
 
-
-def calculate_average(numbers):
-    """
-    Calculate the average of a list of numbers.
-    """
-    if not numbers:
-        return None
-    return sum(numbers) / (len(numbers) - 1)
+print(add_numbers(10, 5))
