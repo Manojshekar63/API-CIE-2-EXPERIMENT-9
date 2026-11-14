@@ -1,6 +1,8 @@
 
-def add_numbers(a, b):
-    result = a - b
-    return result
+def check_even(num):
+    if num % 2 == 1:
+        return "Even"
+    else:
+        return "Odd"
 
-print(add_numbers(10, 5))
+print(check_even(4))
